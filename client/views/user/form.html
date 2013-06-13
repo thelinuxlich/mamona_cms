@@ -1,0 +1,46 @@
+<div>
+    <form novalidate data-bind="submit: submit" enctype='multipart/form-data' method="post">
+        <fieldset>
+            <legend data-bind="text: user.id == '' ? 'Novo Usuário' : 'Atualizar Usuário'"></legend>
+            <div class='control-group'>
+                <label class='control-label' for='nome'>Nome</label>
+                <div class='controls'>
+                    <input type='text' name='name' data-bind="value: user.name" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
+                </div>
+            </div>
+            <div class='control-group'>
+                <label class='control-label' for='email'>E-mail</label>
+                <div class='controls'>
+                    <input type='email' name='email' data-bind="value: user.email" data-validation-required-required='true' data-validation-required-message='Digite um e-mail válido.'>
+                </div>
+            </div>
+            <!-- ko if: user.id == '' -->
+            <div class='control-group'>
+                <label class='control-label' for='password'>Senha</label>
+                <div class='controls'>
+                    <input type='password' name='password' data-bind="value: user.senha" data-validation-required-required='true' data-validation-required-message='Digite uma senha.'>
+                </div>
+            </div>
+            <!-- /ko -->
+            <label>Nível</label>
+            <select name="role_id" data-bind="options: roles,optionsValue: 'id',optionsText: 'name',value: user.role_id"></select>
+            <label>Status</label>
+            <select name="status" data-bind="value: user.status">
+                <option value="1">Ativo</option>
+                <option value="0">Inativo</option>
+            </select>
+            <div data-bind="attr: {class: 'fileupload fileupload-'+(!!user.avatar() ? 'exists' : 'new')}" data-provides="fileupload">
+              <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"></div>
+              <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"><img data-bind="attr: {src: user.avatar}"></div>
+              <span class="btn btn-file"><span class="fileupload-new">Selecionar Avatar</span><span class="fileupload-exists">Mudar</span>
+                <input type="file" name="avatar" id="avatar">
+              </span>
+              <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Excluir</a>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: user.id == '' ? 'Gravar' : 'Atualizar' "></button>
+                <a href="#user" class="btn">Voltar</a>
+            </div>
+        </fieldset>
+    </form>
+</div>

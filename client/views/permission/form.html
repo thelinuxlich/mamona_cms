@@ -1,0 +1,29 @@
+<div>
+    <form novalidate data-bind="submit: submit" enctype='multipart/form-data' method="post">
+        <fieldset>
+            <legend data-bind="text: permission.id == '' ? 'Nova Permissão' : 'Atualizar Permissão'"></legend>
+            <label>Nível</label>
+            <select name="role_id" data-bind="options: roles,optionsValue: 'id',optionsText: 'name',value: permission.role_id"></select>
+            <label>Recurso</label>
+            <select name="resource" data-bind="options: resources,optionsValue: 'id',optionsText: 'name',value: permission.resource"></select>
+            <div class="checkbox_group">
+                <label class="checkbox inline">
+                  <input type="hidden" name="action_read" value="0">
+                  <input type="checkbox" data-bind="checked: permission.action_read() == 1" name="action_read" value="1"> Ler
+                </label>
+                <label class="checkbox inline">
+                    <input type="hidden" name="action_write" value="0">
+                  <input type="checkbox" data-bind="checked: permission.action_write() == 1" name="action_write" value="1"> Gravar
+                </label>
+                <label class="checkbox inline">
+                  <input type="hidden" name="action_remove" value="0">
+                  <input type="checkbox" data-bind="checked: permission.action_remove() == 1" name="action_remove" value="1"> Excluir
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: permission.id == '' ? 'Gravar' : 'Atualizar' "></button>
+                <a href="#permission" class="btn">Voltar</a>
+            </div>
+        </fieldset>
+    </form>
+</div>
