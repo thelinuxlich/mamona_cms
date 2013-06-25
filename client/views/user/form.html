@@ -5,20 +5,20 @@
             <div class='control-group'>
                 <label class='control-label' for='nome'>Nome</label>
                 <div class='controls'>
-                    <input type='text' name='name' data-bind="value: user.name" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
+                    <input type='text' maxlength="255" name='name' data-bind="value: user.name" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
                 </div>
             </div>
             <div class='control-group'>
                 <label class='control-label' for='email'>E-mail</label>
                 <div class='controls'>
-                    <input type='email' name='email' data-bind="value: user.email" data-validation-required-required='true' data-validation-required-message='Digite um e-mail válido.'>
+                    <input type='email' maxlength="255"  name='email' data-bind="value: user.email" data-validation-required-required='true' data-validation-required-message='Digite um e-mail válido.'>
                 </div>
             </div>
             <!-- ko if: user.id == '' -->
             <div class='control-group'>
                 <label class='control-label' for='password'>Senha</label>
                 <div class='controls'>
-                    <input type='password' name='password' data-bind="value: user.senha" data-validation-required-required='true' data-validation-required-message='Digite uma senha.'>
+                    <input type='password' maxlength="255"  name='password' data-bind="value: user.senha" data-validation-required-required='true' data-validation-required-message='Digite uma senha.'>
                 </div>
             </div>
             <!-- /ko -->
@@ -38,6 +38,7 @@
               <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Excluir</a>
             </div>
             <div>
+                <hr />
                 <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: user.id == '' ? 'Gravar' : 'Atualizar' "></button>
                 <a href="#user" class="btn">Voltar</a>
             </div>

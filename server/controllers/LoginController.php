@@ -33,10 +33,10 @@ class LoginController extends ApplicationController {
             $_SESSION["user"] = array("id" => $user->id,"name" => $user->name);
             $user->last_login_at = date("Y-m-d h:i:s");
             R::store($user);
-            $permissions = R::getAll("select resource,action_read,action_write,action_remove from permissions where role_id = ".$user->role_id);
+            $permissions = R::getAll("select resource,action_read,action_write,action_remove from permission where role_id = ".$user->role_id);
             $json = array('status' => true,'msg' => 'Bem-vindo!','username' => $user->name,'permissions' => $permissions);
         } else {
-            $json = array('status' => false,'msg' => htmlentities('Usuário e/ou senha inválida!'));
+            $json = array('status' => false,'msg' => 'Usuário e/ou senha inválida!');
         }
         self::render_json($json);
     }

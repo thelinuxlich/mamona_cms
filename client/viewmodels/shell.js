@@ -1,5 +1,5 @@
-﻿define(['plugins/router','durandal/app','durandal/system','knockout'],
-function (router,app,system,ko){
+﻿define(['plugins/router','durandal/app','durandal/system','knockout','bootstrap'],
+function (router,app,system,ko,bootstrap){
     return {
         router: router,
         title: app.title,

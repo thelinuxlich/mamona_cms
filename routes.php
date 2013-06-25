@@ -6,17 +6,13 @@ function add_routes($app) {
             if(isset($_SESSION["user"])) {
                 $user = R::load("user",$_SESSION["user"]["id"]);
             }
-            if($user->can($action,$resource) == false ) {
-                return false;
-            } else {
-                return true;
-            }
+            return $user->can($action,$resource);
         };
     };
 
     $app->get('/seed',function() { HomeController::seed(); });
 
-    foreach($app->config('resources') as $k => $v) {
+    foreach($app->config('resources') as $v) {
         $controller = ucfirst($v)."Controller";
         $app->get('/'.$v,$can("read",$v),function() use($controller){ $controller::index(); });
         $app->get('/'.$v.'/:id',$can("read",$v),function($id) use($controller) { $controller::show($id); })->conditions(array('id' => '[0-9]+'));;

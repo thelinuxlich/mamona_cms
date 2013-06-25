@@ -1,5 +1,5 @@
-define(['jquery_form','viewmodels/permission/permission','durandal/app','viewmodels/shell','bootstrap_validation'],
-function(jquery_form,Permission,app,shell,bootstrap_validation){
+define(['jasny_bootstrap','plugins/dialog','jquery_form','viewmodels/permission/permission','durandal/app','viewmodels/shell','bootstrap_validation'],
+function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
     var Form = function(id) {
         this.permission = new Permission();
         if(!!id) {
@@ -9,7 +9,9 @@ function(jquery_form,Permission,app,shell,bootstrap_validation){
         this.resources = [
             {id: "user",name: "Usuários"},
             {id: "role",name: "Níveis"},
-            {id: "permission",name: "Permissões"}
+            {id: "permission",name: "Permissões"},
+            {id: "event",name: "Eventos"},
+            {id: "member",name: "Membros"}
         ];
         this.submit = function(element) {
             var that = this;
@@ -25,7 +27,7 @@ function(jquery_form,Permission,app,shell,bootstrap_validation){
                         submit.button("reset");
                     },
                     error: function(r) {
-                        app.showMessage("Ocorreu um erro ao tentar "+(that.permission.id == "" ? "gravar" : "atualizar")+" a permissão. Tente novamente mais tarde");
+                        dialog.showMessage("Ocorreu um erro ao tentar "+(that.permission.id == "" ? "gravar" : "atualizar")+" a permissão. Tente novamente mais tarde");
                         submit.button("reset");
                     }
                 });
@@ -49,7 +51,7 @@ function(jquery_form,Permission,app,shell,bootstrap_validation){
         });
     };
 
-    Form.prototype.viewAttached = function() {
+    Form.prototype.compositionComplete = function() {
         $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
     };
 

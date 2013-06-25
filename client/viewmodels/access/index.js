@@ -1,14 +1,15 @@
-define(['durandal/app','viewmodels/shell','durandal/system','knockout','./customModal'],function (app,shell,system,ko,CustomModal) {
+define(['durandal/app','plugins/dialog','viewmodels/shell','durandal/system','knockout','./customModal'],function (app,dialog,shell,system,ko,CustomModal) {
     return {
         email: ko.observable(""),
         password: ko.observable(""),
+        title: app.title,
         forgotPassword: function() {
-            app.showModal(new CustomModal()).then(function(response) {
+            CustomModal.show().then(function(response) {
                 $.post("forgot_password",{email: response}).then(function(r){
                     if(r.status) {
-                        app.showMessage("Um e-mail foi enviado, verifique sua caixa de entrada.");
+                        dialog.showMessage("Um e-mail foi enviado, verifique sua caixa de entrada.");
                     } else {
-                        app.showMessage("Ocorreu um erro ao tentar enviar um e-mail, cheque o endereço e tente novamente.");
+                        dialog.showMessage("Ocorreu um erro ao tentar enviar um e-mail, cheque o endereço e tente novamente.");
                     }
                 });
             });

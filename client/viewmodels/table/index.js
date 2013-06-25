@@ -1,5 +1,5 @@
-define(['paging','durandal/app'],function(paging,app){
-    var ctor = function(obj,fields) {
+define(['paging','durandal/app','plugins/dialog'],function(paging,app,dialog){
+    var ctor = function(obj,fields,actions) {
         this.obj = obj;
         this.fields = fields;
         this.html = "<table style='display: none' class='table table-hover table-striped table-bordered'><thead>";
@@ -7,9 +7,16 @@ define(['paging','durandal/app'],function(paging,app){
             this.html += "<th>"+k+"</th>";
         }
         this.html += "<th>Ações</th></thead><tbody>";
+        this.generate_actions = function(id){
+            return {
+                "Excluir": "<a class='btn btn-mini remove_item link_row' data-id='"+id+"'><i class='icon-trash'></i> Excluir</a>",
+                "Administrar Vagas": "<a class='btn btn-mini link_row' href='#event/"+id+"/subscription' data-id='"+id+"'><i class='icon-group'></i> Administrar Vagas</a>"
+            }
+        };
         for(i = 0;i < obj.length;i++) {
             var item = obj[i];
             this.html += "<tr data-id='"+item["id"]+"'>";
+            var _actions = this.generate_actions(item["id"]);
             for(var k in fields) {
                 field = fields[k];
                 if(field == "status") {
@@ -18,7 +25,11 @@ define(['paging','durandal/app'],function(paging,app){
                     this.html += "<td>"+(item[field] ? item[field] : "")+"</td>";
                 }
             }
-            this.html += "<td><button class='btn btn-mini remove_item' data-id='"+item["id"]+"'><i class='icon-trash'></i> Excluir</button></td></tr>";
+            this.html += "<td>";
+            for(j = 0; j < actions.length; j++) {
+                this.html += _actions[actions[j]];
+            }
+            this.html += "</td></tr>";
         }
         this.html += "</tbody></table>";
     }
@@ -62,6 +73,10 @@ define(['paging','durandal/app'],function(paging,app){
             window.location.href = window.location.href+"/"+$(this).attr("data-id")+"/edit";
         });
 
+        $("#"+container_id).find(".link_row").on("click",function(e){
+            e.stopPropagation();
+        });
+
         $("#"+container_id).find(".change_status").on("click",function(){
             var self = $(this);
             self.attr("disabled",true);
@@ -77,7 +92,7 @@ define(['paging','durandal/app'],function(paging,app){
                         self.text("Inativo");
                     }
                 } else {
-                    app.showMessage(html_decode(r.msg));
+                    dialog.showMessage(html_decode(r.msg));
                 }
                 self.attr("disabled",false);
             });
@@ -87,13 +102,13 @@ define(['paging','durandal/app'],function(paging,app){
         $("#"+container_id).find(".remove_item").on("click",function(){
             var self = $(this);
             self.attr("disabled",true);
-            app.showMessage("O item será excluído. Continuar?", "Atenção!",["Ok","Cancelar"]).then(
+            dialog.showMessage("O item será excluído. Continuar?", "Atenção!",["Ok","Cancelar"]).then(
                 function(response) {
                     if(response == "Ok") {
                         self.parent().parent().remove();
                         $.post(window.location.href.replace("#","")+"/delete/"+self.attr("data-id"), function(r){
                             if(r.status != true) {
-                                app.showMessage(html_decode(r.msg));
+                                dialog.showMessage(html_decode(r.msg));
                             }
                         });
                     } else {

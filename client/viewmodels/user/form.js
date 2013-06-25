@@ -1,5 +1,5 @@
-define(['jquery_form','knockout','viewmodels/user/user','durandal/app','viewmodels/shell','jasny_bootstrap','bootstrap_validation'],
-function(form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
+define(['plugins/dialog','jquery_form','knockout','viewmodels/user/user','durandal/app','viewmodels/shell','jasny_bootstrap','bootstrap_validation'],
+function(dialog,form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
     var Form = function(id) {
         this.user = new User();
         if(!!id) {
@@ -23,7 +23,7 @@ function(form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
                         submit.button("reset");
                     },
                     error: function(r) {
-                        app.showMessage("Ocorreu um erro ao tentar "+(that.user.id == "" ? "gravar" : "atualizar")+" o usuário. Tente novamente mais tarde");
+                        dialog.showMessage("Ocorreu um erro ao tentar "+(that.user.id == "" ? "gravar" : "atualizar")+" o usuário. Tente novamente mais tarde");
                         submit.button("reset");
                     }
                 });
@@ -47,7 +47,7 @@ function(form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
         });
     };
 
-    Form.prototype.viewAttached = function() {
+    Form.prototype.compositionComplete = function() {
         $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
     };
 

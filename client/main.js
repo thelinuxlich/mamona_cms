@@ -11,7 +11,8 @@
         'paging': '../lib/jquery-dataTables/js/paging',
         'knockout': '../lib/knockout/knockout-2.2.1',
         'jquery_form': '../lib/jquery-form/jquery.form.min',
-        'jquery': '../lib/jquery/jquery-1.9.1.min'
+        'jquery': '../lib/jquery/jquery-1.9.1.min',
+        'knockout_viewmodel': '../lib/knockout_viewmodel/knockout.viewmodel'
     },
     shim: {
         'bootstrap': {
@@ -29,15 +30,21 @@
         'bootstrap_validation': {
             deps: ['bootstrap']
         }
-    }
+    },
+    urlArgs: "bust=" +  (new Date()).getTime()
 });
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],
 function(system, app, viewLocator){
     system.debug(true);
     app.title = 'Mamona CMS';
+    app.plugins = {
+        router:true,
+        dialog: true,
+        widget: true
+    };
     app.start().then(function() {
         viewLocator.useConvention();
-        app.setRoot('viewmodels/shell', 'entrance');
+        app.setRoot('viewmodels/shell');
     });
 });

@@ -3,18 +3,19 @@
         <fieldset>
             <legend data-bind="text: role.id == '' ? 'Novo Nível' : 'Atualizar Nível'"></legend>
             <div class='control-group'>
-                <label class='control-label' for='nome'>Nome</label>
+                <label class='control-label' for='name'>Nome</label>
                 <div class='controls'>
-                    <input type='text' name='name' data-bind="value: role.name" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
+                    <input type='text'  maxlength="255" name='name' data-bind="value: role.name" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
                 </div>
             </div>
             <div class='control-group'>
-                <label class='control-label' for='nome'>Descrição</label>
+                <label class='control-label' for='description'>Descrição</label>
                 <div class='controls'>
-                    <input type='text' name='name' data-bind="value: role.description" data-validation-required-required='true' data-validation-required-message='Digite um nome de usuário.'>
+                    <input type='text'  maxlength="255" name='description' data-bind="value: role.description" data-validation-required-required='true' data-validation-required-message='Digite uma descrição.'>
                 </div>
             </div>
             <div>
+                <hr />
                 <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: role.id == '' ? 'Gravar' : 'Atualizar' "></button>
                 <a href="#role" class="btn">Voltar</a>
             </div>

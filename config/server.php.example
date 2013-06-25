@@ -6,7 +6,4 @@ function add_server_config($app) {
     $app->config('db_user', 'root');
     $app->config('db_pass', '');
     $app->config('timezone', 'America/Sao_Paulo');
-    $app->config('salt','mamona_cms_2013');
-    $app->config('resources',array('user','role','permission'));
-    $app->config('upload_dir','server/avatars/');
 }

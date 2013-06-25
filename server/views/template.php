@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <title>Mamona Framework</title>
+        <title>Mamona CMS</title>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -36,10 +36,7 @@
     <body>
         <div id="applicationHost">
             <div class="splash">
-              <div class="message">
-                  Mamona CMS
-              </div>
-              <i class="icon-spinner icon-2x icon-spin active"></i>
+              <img src="img/preloader.gif" />
           </div>
         </div>
         <!-- <script src="//connect.facebook.net/en_US/all.js"></script>

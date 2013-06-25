@@ -1,5 +1,5 @@
-define(['jquery_form','viewmodels/role/role','durandal/app','viewmodels/shell','bootstrap_validation'],
-function(jquery_form,Role,app,shell,bootstrap_validation){
+define(['jasny_bootstrap','plugins/dialog','jquery_form','viewmodels/role/role','durandal/app','viewmodels/shell','bootstrap_validation'],
+function(j,dialog,jquery_form,Role,app,shell,bootstrap_validation){
     var Form = function(id) {
         this.role = new Role();
         if(!!id) {
@@ -19,7 +19,7 @@ function(jquery_form,Role,app,shell,bootstrap_validation){
                         submit.button("reset");
                     },
                     error: function(r) {
-                        app.showMessage("Ocorreu um erro ao tentar "+(that.role.id == "" ? "gravar" : "atualizar")+" o nível. Tente novamente mais tarde");
+                        dialog.showMessage("Ocorreu um erro ao tentar "+(that.role.id == "" ? "gravar" : "atualizar")+" o nível. Tente novamente mais tarde");
                         submit.button("reset");
                     }
                 });
@@ -36,7 +36,7 @@ function(jquery_form,Role,app,shell,bootstrap_validation){
         }
     };
 
-    Form.prototype.viewAttached = function() {
+    Form.prototype.compositionComplete = function() {
         $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
     };
 

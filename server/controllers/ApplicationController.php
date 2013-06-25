@@ -48,10 +48,19 @@ class ApplicationController {
 		return self::$mailer->Send();
 	}
 
-	public static function render_json($data) {
+	public static function render_json($data,$htmlentities = false,$deep = false) {
 		$res = self::$app->response();
 		$res['Content-Type'] = 'application/json';
 		$res->status(200);
+		if($htmlentities) {
+			if($deep) {
+				array_walk_recursive($data, function (&$value) {
+		            $value = htmlentities($value);
+		        });
+			} else {
+				$data = array_map('htmlentities',$data);
+			}
+		}
 		$res->body(json_encode($data));
 	}
 
