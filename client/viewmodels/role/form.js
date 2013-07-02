@@ -30,7 +30,7 @@ function(j,dialog,jquery_form,Role,app,shell,bootstrap_validation){
     Form.prototype.activate = function() {
         var that = this;
         if(that.role.id !== "") {
-            $.get("role/"+that.role.id).then(function(r){
+            return $.get("role/"+that.role.id).then(function(r){
                 that.role.name(r.name).description(r.description);
             });
         }

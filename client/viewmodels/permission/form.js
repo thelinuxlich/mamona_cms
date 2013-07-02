@@ -5,7 +5,7 @@ function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
         if(!!id) {
             this.permission.id = id;
         }
-        this.roles = ko.observableArray();
+        this.roles = [];
         this.resources = [
             {id: "user",name: "Usuários"},
             {id: "role",name: "Níveis"},
@@ -37,10 +37,10 @@ function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
 
     Form.prototype.activate = function() {
         var that = this;
-        $.getJSON("role").then(function(r){
-            that.roles(r);
+        return $.getJSON("role").then(function(r){
+            that.roles = r;
             if(that.permission.id !== "") {
-                $.get("permission/"+that.permission.id,function(p){
+                return $.get("permission/"+that.permission.id,function(p){
                     that.permission.resource(p.resource)
                     .action_write(p.action_write)
                     .action_remove(p.action_remove)
