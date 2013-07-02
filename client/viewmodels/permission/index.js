@@ -1,16 +1,15 @@
-﻿define(['durandal/app','viewmodels/table/index'],
-function (app,Table) {
-    this.table = "";
+﻿define(['knockout','durandal/app','viewmodels/table/index'],
+function (ko,app,Table) {
     return {
-        table: this.table,
+        table: ko.observable(),
         attachedToParent: function() {
             Table.initializeTable("permissions");
         },
         activate: function() {
             var that = this;
-            return $.get("permission").then(function(r){
+            $.get("permission").then(function(r){
                 var table = new Table(r,{'#': 'id','Recurso': 'resource','Nível': 'role_name','Leitura': 'action_read','Gravação': 'action_write','Remoção': 'action_remove'},["Excluir"]);
-                that.table = table.html;
+                that.table(table.html);
             });
         }
     };

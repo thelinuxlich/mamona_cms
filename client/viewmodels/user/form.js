@@ -5,7 +5,7 @@ function(dialog,form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
         if(!!id) {
             this.user.id = id;
         }
-        this.roles = [];
+        this.roles = ko.observableArray();
         this.submit = function(element) {
             var that = this;
             if($(element).jqBootstrapValidation("hasErrors")) {
@@ -33,10 +33,10 @@ function(dialog,form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
 
     Form.prototype.activate = function() {
         var that = this;
-        return $.get("role").then(function(r){
-            that.roles = r;
+        $.get("role").then(function(r){
+            that.roles(r);
             if(that.user.id !== "") {
-                return $.get("user/"+that.user.id,function(u){
+                $.get("user/"+that.user.id,function(u){
                     that.user.name(u.name)
                     .avatar(u.avatar)
                     .role_id(u.role_id)

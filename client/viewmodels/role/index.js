@@ -1,16 +1,15 @@
-﻿define(['durandal/app','viewmodels/table/index'],
-function (app,Table) {
-    this.table = "";
+﻿define(['knockout','durandal/app','viewmodels/table/index'],
+function (ko,app,Table) {
     return {
-        table: this.table,
+        table: ko.observable(),
         attachedToParent: function() {
             Table.initializeTable("roles");
         },
         activate: function() {
             var that = this;
-            return $.get("role").then(function(r){
+            $.get("role").then(function(r){
                 var table = new Table(r,{'#': 'id','Nome': 'name','Descrição': 'description'},["Excluir"]);
-                that.table = table.html;
+                that.table(table.html);
             });
         }
     };
