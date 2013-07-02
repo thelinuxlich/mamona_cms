@@ -23,9 +23,9 @@ class Model extends RedBean_SimpleModel{
 
 	public function update() {
 		if($this->id == "") {
-			$this->created_at = date("Y-m-d h:i:s");
+			$this->created_at = date("Y-m-d H:i:s");
 		}
-        $this->updated_at = date("Y-m-d h:i:s");
+        $this->updated_at = date("Y-m-d H:i:s");
     }
 }
 ?>

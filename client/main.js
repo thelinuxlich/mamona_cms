@@ -38,11 +38,11 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],
 function(system, app, viewLocator){
     system.debug(true);
     app.title = 'Mamona CMS';
-    app.plugins = {
+    app.configurePlugins({
         router:true,
         dialog: true,
         widget: true
-    };
+    });
     app.start().then(function() {
         viewLocator.useConvention();
         app.setRoot('viewmodels/shell');
