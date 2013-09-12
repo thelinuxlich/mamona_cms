@@ -1,5 +1,5 @@
-define(['plugins/dialog','jquery_form','knockout','viewmodels/user/user','durandal/app','viewmodels/shell','jasny_bootstrap','bootstrap_validation'],
-function(dialog,form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
+define(['plugins/dialog','viewmodels/user/user','durandal/app','viewmodels/shell','durandal/system'],
+function(dialog,User,app,shell,system){
     var Form = function(id) {
         this.user = new User();
         if(!!id) {
@@ -18,7 +18,7 @@ function(dialog,form,ko,User,app,shell,jasny_bootstrap,bootstrap_validation){
                 }
                 $(element).ajaxSubmit({url: "user/"+(that.user.id == "" ? "create" : "update/"+that.user.id),data: ko.toJS(that.user),type: "POST",dataType: 'json',iframe: true,
                     success: function(r) {
-                        shell.router.navigate('user',true);
+                        shell.router.navigate('user');
                         app.trigger("flash",{type: "success", msg: "Usuário "+(that.user.id == "" ? "gravado" : "atualizado")+" com sucesso!"});
                         submit.button("reset");
                     },

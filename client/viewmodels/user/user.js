@@ -1,4 +1,4 @@
-define(['knockout'],function(ko){
+define(function(){
     var User = function() {
         this.id = "";
         this.name = ko.observable();

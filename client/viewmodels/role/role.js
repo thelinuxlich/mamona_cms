@@ -1,4 +1,4 @@
-define(['knockout'],function(ko){
+define(function(){
     var Role = function() {
         this.id = "";
         this.name = ko.observable();

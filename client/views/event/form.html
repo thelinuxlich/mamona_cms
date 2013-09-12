@@ -1,0 +1,135 @@
+<div>
+    <form novalidate data-bind="submit: submit" method="post">
+        <fieldset>
+            <legend data-bind="text: event.id == '' ? 'Novo Evento' : 'Atualizar Evento'"></legend>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class='control-group'>
+                        <label class='control-label' for='title'>Nome do Evento</label>
+                        <div class='controls'>
+                            <input type='text' class="input-block-level" maxlength="255" name='title' data-bind="value: event.title" data-validation-required-required='true' data-validation-required-message='Digite um título.'>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='max_subscriptions'>Número de vagas</label>
+                        <div class='controls'>
+                            <input type='text' class="span2" maxlength="5" name='max_subscriptions' data-bind="value: event.max_subscriptions" data-validation-number-number="true" data-validation-number-message="Este campo aceita apenas números." data-validation-required-required='true' data-validation-required-message='Digite um número de vagas.'>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='date_start'>Data de início</label>
+                            <div class='controls'>
+                                <input type='text' class="span6" name='date_start' data-meio-mask='date' data-bind="value: event.date_start" data-validation-required-required='true' data-validation-required-message='Digite uma data de início.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='time_start'>Horário de início</label>
+                            <div class='controls'>
+                                <input type='text' class="span4" id='time_start' data-meio-mask='time' data-bind="value: event.time_start" data-validation-required-required='true' data-validation-required-message='Digite um horário de início.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='date_end'>Data de término</label>
+                            <div class='controls'>
+                                <input type='text' class="span6" name='date_end' data-meio-mask='date' data-bind="value: event.date_end" data-validation-required-required='true' data-validation-required-message='Digite uma data de término.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='time_end'>Horário de término</label>
+                            <div class='controls'>
+                                <input type='text' class="span4" id="time_end" data-meio-mask='time' data-bind="value: event.time_end" data-validation-required-required='true' data-validation-required-message='Digite um horário de término.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='street'>Endereço completo</label>
+                        <div class='controls'>
+                            <input type='text'  class="input-block-level" maxlength="255" name='street' data-bind="value: event.street" data-validation-required-required='true' data-validation-required-message='Digite um endereço.'>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='city'>Cidade</label>
+                            <div class='controls'>
+                                <input type='text' maxlength="255" name='city' data-bind="value: event.city" data-validation-required-required="true" data-validation-required-message="Digite uma cidade." class="input-block-level">
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='state'>Estado</label>
+                            <select name="state" class="input-block-level" data-bind="options: states,optionsValue: 'id',optionsText: 'name',value: event.state"></select>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='description'>Descrição</label>
+                        <div class='controls'>
+                            <textarea class="editor input-block-level" name='description' rows="10" data-bind="value: event.description" data-validation-required-required='true' data-validation-required-message='Digite uma descrição.'></textarea>
+                        </div>
+                    </div>
+                    <div id="event_upload_photo" data-bind="attr: {class: 'span12 fileupload fileupload-'+(!!event.image() ? 'exists' : 'new')}" data-provides="fileupload">
+                      <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"></div>
+                      <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"><img data-bind="attr: {src: event.image}"></div>
+                      <span class="btn btn-file"><span class="fileupload-new">Selecionar Imagem</span><span class="fileupload-exists">Mudar</span>
+                        <input type="file" name="image" id="image">
+                      </span>
+                      <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Excluir</a>
+                    </div>
+                </div>
+                <div class="span3">
+                    <label>Status do Evento</label>
+                    <select name="status" data-bind="value: event.status">
+                        <option value="0">Inativo</option>
+                        <option value="1">Ativo</option>
+                    </select>
+                    <label for="status_subscriptions">Inscrições</label>
+                    <select name="status_subscriptions" data-bind="value: event.status_subscriptions">
+                        <option value="1">Abertas</option>
+                        <option value="2">Pausadas</option>
+                        <option value="0">Encerradas</option>
+                    </select>
+                    <div class="row-fluid">
+                        <div class="span12" data-bind="visible: event.id !== ''">
+                            <h3 data-bind="text: event.participations_text"></h3>
+                            <h4 data-bind="text: event.presences_and_absences_text"></h4>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='student_price'>Preço para Estudante</label>
+                        <div class='controls'>
+                            <input type="checkbox" class="check_price">
+                            <input type='text' class="span3" maxlength="10" data-mask-money='true'  name='student_price' data-bind="value: event.student_price" data-validation-regex-regex="[0-9\.,]+" data-validation-regex-message="Este campo aceita apenas números.">
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='professional_price'>Preço para Profissional</label>
+                        <div class='controls'>
+                            <input type="checkbox" class="check_price">
+                            <input type='text' class="span3" maxlength="10" data-mask-money='true'  name='professional_price' data-bind="value: event.professional_price"  data-validation-regex-regex="[0-9\.,]+" data-validation-regex-message="Este campo aceita apenas números.">
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='abelhinhas_price'>Preço para Abelhinhas</label>
+                        <div class='controls'>
+                            <input type="checkbox" class="check_price">
+                            <input type='text' class="span3" maxlength="10"  data-mask-money='true' name='abelhinhas_price' data-bind="value: event.abelhinhas_price"  data-validation-regex-regex="[0-9\,.]+" data-validation-regex-message="Este campo aceita apenas números.">
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='price'>Preço para Avulso</label>
+                        <div class='controls'>
+                            <input type="checkbox" class="check_price">
+                            <input type='text' class="span3" maxlength="10" data-mask-money='true' name='price' data-bind="value: event.price"  data-validation-regex-regex="[0-9\,.]+" data-validation-regex-message="Este campo aceita apenas números.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr />
+                <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: event.id == '' ? 'Gravar' : 'Atualizar' "></button>
+                <a href="#event" class="btn">Voltar</a>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,4 +1,4 @@
-define(['knockout'],function(ko){
+define(function(){
     var Permission = function() {
         this.id = "";
         this.resource = ko.observable();

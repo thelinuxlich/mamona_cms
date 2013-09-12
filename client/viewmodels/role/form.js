@@ -1,5 +1,5 @@
-define(['jasny_bootstrap','plugins/dialog','jquery_form','viewmodels/role/role','durandal/app','viewmodels/shell','bootstrap_validation'],
-function(j,dialog,jquery_form,Role,app,shell,bootstrap_validation){
+define(['plugins/dialog','viewmodels/role/role','durandal/app','viewmodels/shell'],
+function(dialog,Role,app,shell){
     var Form = function(id) {
         this.role = new Role();
         if(!!id) {
@@ -14,7 +14,7 @@ function(j,dialog,jquery_form,Role,app,shell,bootstrap_validation){
                 submit.button("loading");
                 $(element).ajaxSubmit({url: "role/"+(that.role.id == "" ? "create" : "update/"+that.role.id),dataType: 'json',
                     success: function(r) {
-                        shell.router.navigate('role',true);
+                        shell.router.navigate('role');
                         app.trigger("flash",{type: "success", msg: "Nível "+(that.role.id == "" ? "gravado" : "atualizado")+" com sucesso!"});
                         submit.button("reset");
                     },

@@ -100,6 +100,7 @@
     margin-bottom: 10px;
 }
 .form-signin input[type="text"],
+.form-signin input[type="email"],
 .form-signin input[type="password"] {
     font-size: 16px;
     height: auto;
@@ -125,4 +126,13 @@ form .help-block ul {
     list-style: none;
     margin: 0;
     font-weight: bold;
+}
+.dataTable tfoot tr td input {
+    width: auto !important;
+}
+ul.DTTT_dropdown.dropdown-menu {
+  z-index: 2003;
+}
+#event_upload_photo {
+    margin-left: 0;
 }

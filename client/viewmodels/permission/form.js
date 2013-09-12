@@ -1,5 +1,5 @@
-define(['jasny_bootstrap','plugins/dialog','jquery_form','viewmodels/permission/permission','durandal/app','viewmodels/shell','bootstrap_validation'],
-function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
+define(['plugins/dialog','viewmodels/permission/permission','durandal/app','viewmodels/shell'],
+function(dialog,Permission,app,shell){
     var Form = function(id) {
         this.permission = new Permission();
         if(!!id) {
@@ -9,9 +9,7 @@ function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
         this.resources = [
             {id: "user",name: "Usuários"},
             {id: "role",name: "Níveis"},
-            {id: "permission",name: "Permissões"},
-            {id: "event",name: "Eventos"},
-            {id: "member",name: "Membros"}
+            {id: "permission",name: "Permissões"}
         ];
         this.submit = function(element) {
             var that = this;
@@ -22,7 +20,7 @@ function(j,dialog,jquery_form,Permission,app,shell,bootstrap_validation){
                 submit.button("loading");
                 $(element).ajaxSubmit({url: "permission/"+(that.permission.id == "" ? "create" : "update/"+that.permission.id),dataType: 'json',
                     success: function(r) {
-                        shell.router.navigate('permission',true);
+                        shell.router.navigate('permission');
                         app.trigger("flash",{type: "success", msg: "Permissão "+(that.permission.id == "" ? "gravada" : "atualizada")+" com sucesso!"});
                         submit.button("reset");
                     },

@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="lib/durandal/css/durandal.css" />
         <link rel="stylesheet" href="lib/jquery-dataTables/css/datatables.css" />
         <link rel="stylesheet" href="lib/jasny-bootstrap/css/jasny-bootstrap.css" />
+        <link rel="stylesheet" href="lib/tabletools/css/TableTools.css" />
         <link rel="stylesheet" href="css/main.css" />
 
         <script type="text/javascript">
@@ -37,30 +38,20 @@
         <div id="applicationHost">
             <div class="splash">
               <img src="img/preloader.gif" />
-          </div>
+            </div>
         </div>
-        <!-- <script src="//connect.facebook.net/en_US/all.js"></script>
-        <script>
-            window.fbAsyncInit = function() {
-                // init the FB JS SDK
-                FB.init({
-                    appId      : '373968349391039',                     // App ID
-                    channelUrl : 'channel.php'            // Channel File
-                });
-
-                // Additional initialization code such as adding Event Listeners goes here
-                FB.Canvas.setAutoGrow();
-            };
-        </script>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', '', 'test.com');
-          ga('send', 'pageview');
-        </script>-->
+        <script src="lib/jquery/jquery-1.10.2.min.js"></script>
+        <script src="lib/knockout/knockout-2.3.0.js"></script>
+        <script src="lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/jqBootstrapValidation/jqBootstrapValidation.js"></script>
+        <script src="lib/jquery-dataTables/js/jquery.dataTables.min.js"></script>
+        <script src="lib/jquery-dataTables/js/paging.js"></script>
+        <script src="lib/tabletools/js/TableTools.min.js"></script>
+        <script src="lib/jquery-form/jquery.form.min.js"></script>
+        <script src="lib/jquery_meio_mask/jquery.meio.mask.min.js"></script>
+        <script src="lib/jquery_mask_money/jquery.maskMoney.js"></script>
         <script src="lib/require/require.js" data-main="client/main"></script>
+        <script src="client/main-built.js"></script>
     </body>
 </html>

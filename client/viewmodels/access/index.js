@@ -1,4 +1,4 @@
-define(['durandal/app','plugins/dialog','viewmodels/shell','durandal/system','knockout','./customModal'],function (app,dialog,shell,system,ko,CustomModal) {
+define(['durandal/app','plugins/dialog','viewmodels/shell','durandal/system','./customModal'],function (app,dialog,shell,system,CustomModal) {
     return {
         email: ko.observable(""),
         password: ko.observable(""),
@@ -21,7 +21,7 @@ define(['durandal/app','plugins/dialog','viewmodels/shell','durandal/system','kn
                     app.trigger("flash",{type: "success", msg: r.msg});
                     app.trigger("loadPermissions",r.permissions);
                     app.trigger("username",r.username);
-                    shell.router.navigate("",true);
+                    shell.router.navigate("");
                 } else {
                     app.trigger("flashNow",{type: "error", msg: r.msg});
                 }

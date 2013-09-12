@@ -1,5 +1,5 @@
-﻿define(['plugins/router','durandal/app','durandal/system','knockout','bootstrap'],
-function (router,app,system,ko,bootstrap){
+﻿define(['plugins/router','durandal/app','durandal/system'],
+function (router,app,system){
     return {
         router: router,
         title: app.title,
@@ -25,8 +25,11 @@ function (router,app,system,ko,bootstrap){
             $.post("logoff").then(function(r) {
                 that.logged(false);
                 app.trigger('flash',{type: "success",msg: "Você desconectou do sistema."});
-                that.router.navigate("#access",true);
+                that.router.navigate("#access");
             });
+        },
+        isActive: function(resource) {
+            return this.router.activeInstruction().fragment.match(resource+"/") !== null;
         },
         activate: function () {
             var that = this;
@@ -66,21 +69,19 @@ function (router,app,system,ko,bootstrap){
                 }
             };
             router.map([
-                { route: '', moduleId: 'viewmodels/hello/index', title: 'Início' },
+                { route: '', moduleId: 'viewmodels/hello/index', title: 'Início', nav: true },
                 { route: 'user', moduleId: 'viewmodels/user/index', title: 'Usuários', nav: true },
-                { route: 'user/new', moduleId: 'viewmodels/user/new', title: 'Novo Usuário'},
-                { route: 'user/:id/edit', moduleId: 'viewmodels/user/edit', title: 'Editar Usuário'},
+                { route: 'user/new', moduleId: 'viewmodels/user/new', title: 'Novo Usuário', nav: true},
+                { route: 'user/:id/edit', moduleId: 'viewmodels/user/edit', title: 'Editar Usuário', nav: true},
                 { route: 'role', moduleId: 'viewmodels/role/index', title: 'Níveis', nav: true },
-                { route: 'role/new', moduleId: 'viewmodels/role/new', title: 'Novo Nível'},
-                { route: 'role/:id/edit', moduleId: 'viewmodels/role/edit', title: 'Editar Nível'},
+                { route: 'role/new', moduleId: 'viewmodels/role/new', title: 'Novo Nível', nav: true},
+                { route: 'role/:id/edit', moduleId: 'viewmodels/role/edit', title: 'Editar Nível', nav: true},
                 { route: 'permission', moduleId: 'viewmodels/permission/index', title: 'Permissões', nav: true },
-                { route: 'permission/new', moduleId: 'viewmodels/permission/new', title: 'Nova Permissão'},
-                { route: 'permission/:id/edit', moduleId: 'viewmodels/permission/edit', title: 'Editar Permissão'},
-                { route: 'access', moduleId: 'viewmodels/access/index', title: 'Acesso ao Sistema'},
-                { route: '404', moduleId: 'viewmodels/404/index', title: 'Página não encontrada'}
-            ]).buildNavigationModel();
-            router.mapUnknownRoutes("viewmodels/404/index");
-            return router.activate();
+                { route: 'permission/new', moduleId: 'viewmodels/permission/new', title: 'Nova Permissão', nav: true},
+                { route: 'permission/:id/edit', moduleId: 'viewmodels/permission/edit', title: 'Editar Permissão', nav: true},
+                { route: 'access', moduleId: 'viewmodels/access/index', title: 'Acesso ao Sistema', nav: true},
+                { route: '404', moduleId: 'viewmodels/404/index', title: 'Página não encontrada', nav: true}
+            ]).buildNavigationModel().mapUnknownRoutes("viewmodels/404/index").activate();
         }
     };
 });

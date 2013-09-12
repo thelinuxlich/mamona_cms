@@ -3,8 +3,8 @@ function (app,Table) {
     this.table = "";
     return {
         table: this.table,
-        attachedToParent: function() {
-            Table.initializeTable("users");
+        attached: function() {
+            Table.initializeTable("user");
         },
         activate: function() {
             var that = this;

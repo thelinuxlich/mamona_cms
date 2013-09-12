@@ -19,6 +19,7 @@ function add_routes($app) {
         $app->post('/'.$v.'/create',$can("write",$v),function() use($controller) { $controller::create(); });
         $app->post('/'.$v.'/update/:id',$can("write",$v),function($id) use($controller) { $controller::update($id); });
         $app->post('/'.$v.'/delete/:id',$can("remove",$v),function($id) use($controller) { $controller::delete($id); });
+        $app->post('/'.$v.'/update_status/:id',$can("write",$v),function($id) use($controller) { $controller::update_status($id); });
     }
 
     $app->get('/',function() use($app) { $app->render("template.php"); });
@@ -26,5 +27,4 @@ function add_routes($app) {
     $app->post('/logoff',function() { LoginController::delete(); });
     $app->post('/login',function() { LoginController::create(); });
     $app->post('/forgot_password',function() { LoginController::forgot_password(); });
-    $app->post('/user/update_status/:id',$can("write","user"),function($id) { UserController::update_status($id); });
 }

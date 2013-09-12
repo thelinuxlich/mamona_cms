@@ -1,11 +1,11 @@
 {
     "require": {
         "slim/slim": "2.*",
-        "respect/validation": "dev-develop",
+        "respect/validation": "0.4.4",
         "flynsarmy/slim-monolog": "dev-master",
         "monolog/monolog": "1.5.0",
         "firephp/firephp-core": "dev-master",
-        "ccampbell/chromephp": "4.0.0",
+        "ccampbell/chromephp": "4.1.0",
         "imagine/imagine": "v0.4.1",
         "patchwork/utf8": "1.1.*"
     },

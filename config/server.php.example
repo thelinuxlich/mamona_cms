@@ -5,5 +5,4 @@ function add_server_config($app) {
     $app->config('db_host', 'mysql:host=localhost;dbname=test');
     $app->config('db_user', 'root');
     $app->config('db_pass', '');
-    $app->config('timezone', 'America/Sao_Paulo');
 }

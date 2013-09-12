@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4da214320c9512814585c194b95a827f",
+    "hash": "be0bead0deb48bd3e32e5879e1dcbe35",
     "packages": [
         {
             "name": "ccampbell/chromephp",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ccampbell/chromephp.git",
-                "reference": "4.0.0"
+                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ccampbell/chromephp/zipball/4.0.0",
-                "reference": "4.0.0",
+                "url": "https://api.github.com/repos/ccampbell/chromephp/zipball/c3c297615d48ae5b2a86a82311152d1ed095fcef",
+                "reference": "c3c297615d48ae5b2a86a82311152d1ed095fcef",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,7 @@
                     "ChromePhp": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -46,7 +46,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2013-04-13 04:12:03"
+            "time": "2013-06-26 03:44:33"
         },
         {
             "name": "firephp/firephp-core",
@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/firephp/firephp-core.git",
-                "reference": "v0.4.0"
+                "reference": "fabad0f2503f9577fe8dd2cb1d1c7cd73ed2aacf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firephp/firephp-core/zipball/v0.4.0",
-                "reference": "v0.4.0",
+                "url": "https://api.github.com/repos/firephp/firephp-core/zipball/fabad0f2503f9577fe8dd2cb1d1c7cd73ed2aacf",
+                "reference": "fabad0f2503f9577fe8dd2cb1d1c7cd73ed2aacf",
                 "shasum": ""
             },
             "type": "library",
@@ -69,7 +69,7 @@
                     "lib/FirePHPCore/fb.php"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -91,12 +91,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Flynsarmy/Slim-Monolog.git",
-                "reference": "79700f32c181413e2b38453e87d595d0b0c69e32"
+                "reference": "e4abedb377348fa005a6286c4006e530496c8b06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Flynsarmy/Slim-Monolog/zipball/79700f32c181413e2b38453e87d595d0b0c69e32",
-                "reference": "79700f32c181413e2b38453e87d595d0b0c69e32",
+                "url": "https://api.github.com/repos/Flynsarmy/Slim-Monolog/zipball/e4abedb377348fa005a6286c4006e530496c8b06",
+                "reference": "e4abedb377348fa005a6286c4006e530496c8b06",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,7 @@
                     "Flynsarmy\\SlimMonolog": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -127,7 +127,7 @@
                 "logging",
                 "middleware"
             ],
-            "time": "2013-04-05 13:04:50"
+            "time": "2013-08-30 15:17:02"
         },
         {
             "name": "imagine/imagine",
@@ -240,16 +240,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.8",
+            "version": "v1.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "v1.1.8"
+                "reference": "153c3b3e5dded58a1eb749c80049f44ce086399e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/v1.1.8",
-                "reference": "v1.1.8",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/153c3b3e5dded58a1eb749c80049f44ce086399e",
+                "reference": "153c3b3e5dded58a1eb749c80049f44ce086399e",
                 "shasum": ""
             },
             "require": {
@@ -281,7 +281,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2013-05-24 12:11:22"
+            "time": "2013-08-19 09:37:02"
         },
         {
             "name": "psr/log",
@@ -323,21 +323,17 @@
         },
         {
             "name": "respect/validation",
-            "version": "dev-develop",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "21ef9dae33f9c8bca1ad2bd4d703c356ae39a719"
+                "reference": "ff3090d2d3bbc98561a125f3add89769e9d54a55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/21ef9dae33f9c8bca1ad2bd4d703c356ae39a719",
-                "reference": "21ef9dae33f9c8bca1ad2bd4d703c356ae39a719",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/ff3090d2d3bbc98561a125f3add89769e9d54a55",
+                "reference": "ff3090d2d3bbc98561a125f3add89769e9d54a55",
                 "shasum": ""
-            },
-            "require-dev": {
-                "symfony/validator": "2.*",
-                "zendframework/zend-validator": "2.*"
             },
             "type": "library",
             "autoload": {
@@ -345,7 +341,7 @@
                     "Respect\\Validation": "library/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD Style"
             ],
@@ -360,8 +356,25 @@
                     "email": "alexandre@gaigalas.net"
                 },
                 {
+                    "name": "Augusto Pascutti",
+                    "email": "contato@augustopascutti.com"
+                },
+                {
+                    "name": "Alexandre (@alganet)",
+                    "email": "alganet@alganet-laptop.(none)"
+                },
+                {
+                    "name": "Alexandre Gaigalas",
+                    "email": "alganet@alganet-workstation.(none)"
+                },
+                {
                     "name": "Carlos André Ferrari",
-                    "email": "caferrari@gmail.com"
+                    "email": "andre@andre.(none)"
+                },
+                {
+                    "name": "Carlos André Ferrari",
+                    "email": "caferrari@gmail.com",
+                    "homepage": "http://ferrari.eti.br/"
                 },
                 {
                     "name": "Devin Torres",
@@ -378,6 +391,10 @@
                 {
                     "name": "Jair Henrique",
                     "email": "jair.henrique@gmail.com"
+                },
+                {
+                    "name": "Jayson Reis",
+                    "email": "jayson.reis@sabbre.com.br"
                 },
                 {
                     "name": "Jayson Reis",
@@ -416,34 +433,29 @@
                     "email": "t.brodt@gmail.com"
                 },
                 {
-                    "name": "Kinn Coelho Julião",
-                    "email": "kinncj@gmail.com",
-                    "homepage": "http://kinncj.com.br",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Augusto Pascutti",
-                    "email": "augusto@phpsp.org.br"
+                    "name": "unknown",
+                    "email": "kolyshkin@.sqlmaze.local"
                 }
             ],
             "description": "The most awesome validation engine ever created for PHP",
-            "time": "2013-04-30 17:13:14"
+            "time": "2012-04-24 23:52:45"
         },
         {
             "name": "slim/slim",
-            "version": "2.2.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codeguy/Slim",
-                "reference": "2.2.0"
+                "url": "https://github.com/codeguy/Slim.git",
+                "reference": "2e540cc392644b9b5cdcc57e5576db5a92ca2149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/codeguy/Slim/archive/2.2.0.zip",
-                "reference": "2.2.0",
+                "url": "https://api.github.com/repos/codeguy/Slim/zipball/2e540cc392644b9b5cdcc57e5576db5a92ca2149",
+                "reference": "2e540cc392644b9b5cdcc57e5576db5a92ca2149",
                 "shasum": ""
             },
             "require": {
+                "ext-mcrypt": "*",
                 "php": ">=5.3.0"
             },
             "type": "library",
@@ -452,7 +464,7 @@
                     "Slim": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -470,7 +482,7 @@
                 "rest",
                 "router"
             ],
-            "time": "2012-12-13 02:15:50"
+            "time": "2013-07-20 18:38:05"
         }
     ],
     "packages-dev": [
@@ -481,7 +493,6 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "respect/validation": 20,
         "flynsarmy/slim-monolog": 20,
         "firephp/firephp-core": 20
     },

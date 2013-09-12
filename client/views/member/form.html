@@ -1,0 +1,257 @@
+<div>
+    <form novalidate data-bind="submit: submit" enctype='multipart/form-data' method="post">
+        <fieldset>
+            <legend data-bind="text: member.id == '' ? 'Novo Membro' : 'Atualizar Membro'"></legend>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class='control-group'>
+                        <label class='control-label' for='name'>Nome</label>
+                        <div class='controls'>
+                            <input type='text' maxlength="255" name='name' class="input-block-level" data-bind="value: member.name" data-validation-required-required='true' data-validation-required-message='Digite um nome.'>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='name'>Sobrenome</label>
+                        <div class='controls'>
+                            <input type='text' maxlength="255" name='surname' class="input-block-level" data-bind="value: member.surname" data-validation-required-required='true' data-validation-required-message='Digite um sobrenome.'>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='nationality'>Nacionalidade</label>
+                            <div class='controls'>
+                                <input type='text'  maxlength="255" class="input-block-level" name='nationality' data-bind="value: member.nationality" data-validation-required-required='true' data-validation-required-message='Digite uma nacionalidade.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='birth_date'>Data de Nascimento</label>
+                            <div class='controls'>
+                                <input type='text'  class="input-block-level" data-mask='99/99/9999' name='birth_date' data-bind="value: member.birth_date" data-validation-required-required='true' data-validation-required-message='Digite uma data de nascimento.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='cpf'>CPF</label>
+                            <div class='controls'>
+                                <input type='text'  class="input-block-level" data-mask='999.999.999-99' name='cpf' data-bind="value: member.cpf" data-validation-required-required='true' data-validation-required-message='Digite um CPF.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='rg'>RG</label>
+                            <div class='controls'>
+                                <input type='text'  maxlength="40" class="input-block-level" name='rg' data-bind="value: member.rg" data-validation-required-required='true' data-validation-required-message='Digite um RG.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <label>Estado Civil</label>
+                            <select name="marital_status" class="input-block-level" data-bind="value: member.marital_status">
+                                <option>Solteiro</option>
+                                <option>Noivo</option>
+                                <option>Casado</option>
+                                <option>Viúvo</option>
+                                <option>Separado</option>
+                                <option>Divorciado</option>
+                            </select>
+                        </div>
+                        <div class="span6">
+                            <label>Tipo de Associação</label>
+                            <select name="type_registration"  class="input-block-level" data-bind="value: member.type_registration">
+                                <option>Estudante</option>
+                                <option>Profissional</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row-fluid'>
+                        <div class='control-group span4'>
+                            <label class='control-label' for='cep'>CEP</label>
+                            <div class='controls'>
+                                <input type='text' class="input-block-level" name='cep' data-mask="99999-999" data-bind="value: member.cep" data-validation-required-required='true' data-validation-required-message='Digite um CEP.'>
+                            </div>
+                        </div>
+                        <div class='control-group span8'>
+                            <label class='control-label' for='street'>Endereço</label>
+                            <div class='controls'>
+                                <input type='text' maxlength="255" class="input-block-level" name='street' data-bind="value: member.street" data-validation-required-required='true' data-validation-required-message='Digite um endereço.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='number'>Número</label>
+                            <div class='controls'>
+                                <input type='text' name='number' class="input-block-level" maxlength="255" data-bind="value: member.number" data-validation-required-required='true' data-validation-required-message='Digite um número.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='neighborhood'>Bairro</label>
+                            <div class='controls'>
+                                <input type='text' name='neighborhood' class="input-block-level" maxlength="255" data-bind="value: member.neighborhood" data-validation-required-required='true' data-validation-required-message='Digite um bairro.'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='city'>Cidade</label>
+                            <div class='controls'>
+                                <input type='text' name='city'  class="input-block-level" maxlength="255" data-bind="value: member.city" data-validation-required-required='true' data-validation-required-message='Digite uma cidade.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label>Estado</label>
+                            <select name="state"  class="input-block-level" data-bind="options: states,optionsText: 'name',optionsValue: 'id',value: member.state"></select>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='email'>E-mail</label>
+                            <div class='controls'>
+                                <input type='text' class="input-block-level" maxlength="255"  name='email' data-bind="value: member.email" data-validation-required-required='true' data-validation-required-message='Digite um e-mail.'>
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='phone'>Telefone</label>
+                            <div class='controls'>
+                                <input type='text'  class="input-block-level" data-meio-mask='phone' name='phone' data-validation-required-required='true' data-validation-required-message='Digite um telefone.' data-bind="value: member.phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='commercial_phone'>Telefone Comercial</label>
+                            <div class='controls'>
+                                <input type='text'  class="input-block-level" data-meio-mask='phone' name='commercial_phone' data-bind="value: member.commercial_phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid" data-bind="visible: member.type_registration() == 'Estudante'">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='college'>Faculdade</label>
+                            <select name="college" data-bind="value: member.college">
+                                <option>Faculdade 1</option>
+                                <option>Faculdade 2</option>
+                                <option>Faculdade 3</option>
+                                <option>Faculdade 4</option>
+                                <option>Outros</option>
+                            </select>
+                            <input type="text" id="custom_college" name="custom_college" data-bind="value: member.custom_college,visible: member.college() == 'Outros'">
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='course'>Curso</label>
+                            <div class='controls'>
+                                <input type='text'  class="input-block-level" maxlength="255"  name='course' data-bind="value: member.course" data-validation-required-required='true' data-validation-required-message='Digite um curso.'>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ko if: member.type_registration() == 'Profissional' -->
+                        <!-- ko foreach: member.scholarities -->
+                            <div class="scholarity_item row-fluid">
+                                <div class="scholarity_item_container" class="span12">
+                                    <div class="span6">
+                                        <div>Escolaridade</div>
+                                        <select name="degree[]" class="degree" data-bind="value: degree">
+                                            <option>Superior Incompleto</option>
+                                            <option>Superior Completo</option>
+                                            <option>Pós Incompleta</option>
+                                            <option>Pós Completa</option>
+                                            <option>Mestrado Incompleto</option>
+                                            <option>Mestrado Completo</option>
+                                            <option>Doutorado Incompleto</option>
+                                            <option>Doutorado Completo</option>
+                                        </select>
+                                    </div>
+                                    <div class="span6">
+                                        <div>Instituição</div>
+                                        <select name="institution[]" class="institution" data-bind="value: institution">
+                                            <option>Faculdade 1</option>
+                                            <option>Faculdade 2</option>
+                                            <option>Faculdade 3</option>
+                                            <option>Faculdade 4</option>
+                                            <option>Outros</option>
+                                        </select>
+                                        <input type="text" data-required="true" style="display: none" data-error-message="Digite a faculdade." class="custom_institution" name="custom_institution[]" data-bind="value: custom_institution,visible: institution() == 'Outros'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="add_scholarity_container span6">
+                                    <a class="add_scholarity" data-bind="visible: $index() == 0,click: $root.member.add_scholarity">Adicionar Escolaridade</a>
+                                </div>
+                                <div class="span6">
+                                    <a class="remove_scholarity" data-bind="visible: $index() > 0,click: function() { $root.member.remove_scholarity($data) } ">Remover</a>
+                                </div>
+                            </div>
+                        <!-- /ko -->
+                    <!-- /ko -->
+                    <div data-bind="visible: member.type_registration() == 'Estudante'">
+                        Trabalha?
+                        <label class="radio inline">
+                          <input type="radio" name="employee" value="1" data-bind="checked: member.employee">
+                          Sim
+                        </label>
+                        <label class="radio inline">
+                          <input type="radio" name="employee" value="0" data-bind="checked: member.employee">
+                          Não
+                        </label>
+                    </div>
+                    <div class="row-fluid" data-bind="visible: member.employee() == '1'">
+                        <div class='control-group span6'>
+                            <label class='control-label' for='email'>Onde?</label>
+                            <div class='controls'>
+                                <input type='text' class="input-block-level" maxlength="255"  name='workplace' data-bind="value: member.workplace">
+                            </div>
+                        </div>
+                        <div class='control-group span6'>
+                            <label class='control-label' for='job'>Cargo</label>
+                            <div class='controls'>
+                                <input type='text' class="input-block-level" maxlength="255" name='job' data-bind="value: member.job">
+                            </div>
+                        </div>
+                    </div>
+                    <div data-bind="visible: member.type_registration() == 'Estudante'">
+                        <label class="checkbox inline">
+                          <input type="hidden" name="is_abelhinhas" value="0">
+                          <input type="checkbox" name="is_abelhinhas" value="1" data-bind="checked: member.is_abelhinhas() == '1'">
+                          Participa do Projeto Abelhinhas
+                        </label>
+                    </div>
+                    <div data-bind="visible: member.type_registration() == 'Estudante'">
+                        <label class="checkbox inline">
+                          <input type="hidden" name="is_punished" value="0">
+                          <input type="checkbox" name="is_punished" value="1" data-bind="checked: member.is_punished() == '1'">
+                          Punição
+                        </label>
+                    </div>
+                </div>
+                <div class="span4" data-bind="visible: member.id !== ''">
+                    <div>
+                        <label>Status do Pagamento</label>
+                        <select name="payment_status" data-bind="value: member.payment_status">
+                            <option>Confirmado</option>
+                            <option>Pendente</option>
+                        </select>
+                    </div>
+                    <div>
+                        <h3>Histórico</h3>
+                        <div data-bind="foreach: subscriptions">
+                            <div>
+                                <a data-bind="click: $parent.toggle.bind($parent,event_id),attr: {class: 'btn '+(status() == '1' ? 'btn-success' : '') }">
+                                    <i data-bind="attr: {class: (status() == '1' ? 'icon-check' : 'icon-check-empty')+' icon-large'}"></i> <span data-bind="html: title"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <hr />
+                    <button type="submit" class="btn btn-primary" data-loading-text="Aguarde..." data-bind="text: member.id == '' ? 'Gravar' : 'Atualizar' "></button>
+                    <a href="#member" class="btn">Voltar</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
